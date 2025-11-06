@@ -7,6 +7,7 @@ const CONFIG = {
     bio: "I love watching movies, shows and games!",
     email: "contact@mazeriio.net",
     github: "mazetta",
+    linkedin: "",
     instagram: "",
   },
   projects: [
