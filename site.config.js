@@ -14,8 +14,8 @@ const CONFIG = {
   },
   projects: [
     {
-      name: `The Word of Maz`,
-      href: "https://github.com/Mazetta/mazeriio.net/",
+      name: `RSS Feed API`,
+      href: "https://www.mazeriio.net/api/rss-feed",
     },
   ],
   // blog setting (required)
