@@ -36,6 +36,12 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
           <meta property="article:author" content={CONFIG.profile.name} />
         </>
       )}
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Flux RSS de Mazeriio.net"
+        href="https://www.mazeriio.net/api/rss-feed"
+      />
     </Head>
   )
 }
