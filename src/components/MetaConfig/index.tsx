@@ -21,9 +21,9 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta content="The Word of Maz" property="og:title" />
       <meta content="Everything you need to know about myself." property="og:description"/>
       <meta content="https://www.mazeriio.net" property="og:url" />
-      <meta content={props.image} property="og:image"/>
+      <meta content="https://www.mazeriio.net/icon-128.png" property="og:image"/>
       <meta content="mazeriio.net" property="og:site_name"/>
-      <meta content="#c2da1a" name="theme-color"/>
+      <meta content="#abd454" name="theme-color"/>
 
       {/* post */}
       {props.type === "Post" && (
