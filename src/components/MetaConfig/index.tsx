@@ -17,20 +17,17 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta name="robots" content="follow, index" />
       <meta charSet="UTF-8" />
       <meta name="description" content={props.description} />
-      {/* og */}
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:image" content={props.image || "https://www.mazeriio.net/mazeriio.png"} />
       <meta property="og:locale" content={CONFIG.lang} />
       <meta property="og:url" content={props.url} />
       <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="Mazeriio.net" />
-      {/* twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:site_name" content="mazeriio.net" />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:image" content={props.image || "https://www.mazeriio.net/mazeriio.png"} />
-      {/* post */}
       {props.type === "Post" && (
         <>
           <meta property="article:published_time" content={props.date} />
