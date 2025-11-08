@@ -18,7 +18,7 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta charSet="UTF-8" />
       <meta name="description" content={props.description} />
       
-      {/* OpenGraph */}
+      {/* OpeGraph */}
       <meta content="website" property="og:type" />
       <meta content={props.title} property="og:title" />
       <meta content={props.description} property="og:description"/>
