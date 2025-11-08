@@ -17,18 +17,14 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta name="robots" content="follow, index" />
       <meta charSet="UTF-8" />
       <meta name="description" content={props.description} />
-      {/* og */}
-      <meta property="og:type" content={props.type} />
-      <meta property="og:title" content={props.title} />
-      <meta property="og:description" content={props.description} />
-      <meta property="og:url" content={props.url} />
-      {CONFIG.lang && <meta property="og:locale" content={CONFIG.lang} />}
-      {props.image && <meta property="og:image" content={props.image} />}
-      {/* twitter */}
-      <meta name="twitter:title" content={props.title} />
-      <meta name="twitter:description" content={props.description} />
-      <meta name="twitter:card" content="summary_large_image" />
-      {props.image && <meta name="twitter:image" content={props.image} />}
+      <meta content="website" property="og:type" />
+      <meta content="The Word of Maz" property="og:title" />
+      <meta content="Everything you need to know about myself." property="og:description"/>
+      <meta content="https://www.mazeriio.net" property="og:url" />
+      <meta content={props.image} property="og:image"/>
+      <meta content="mazeriio.net" property="og:site_name"/>
+      <meta content="#c2da1a" name="theme-color"/>
+
       {/* post */}
       {props.type === "Post" && (
         <>
