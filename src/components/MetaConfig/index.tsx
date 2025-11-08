@@ -29,12 +29,6 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:card" content="summary_large_image" />
       {props.image && <meta name="twitter:image" content={props.image} />}
-      {/* post */}
-      {props.type === "Post" && (
-        <>
-          <meta property="og:description" content="test"/>
-        </>
-      )}
       <link
         rel="alternate"
         type="application/rss+xml"
