@@ -23,12 +23,12 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta property="og:description" content={props.description} />
       <meta property="og:url" content={props.url} />
       {CONFIG.lang && <meta property="og:locale" content={CONFIG.lang} />}
-      {props.image && <meta property="og:image" content="https://www.mazeriio.net/mazeriio.png" />}
+      {props.image && <meta property="og:image" content="https://www.mazeriio.net/icon-128.png" />}
       {/* twitter */}
       <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={props.description} />
-      <meta name="twitter:card" content="https://www.mazeriio.net/mazeriio.png" />
-      {props.image && <meta name="twitter:image" content="https://www.mazeriio.net/mazeriio.png" />}
+      <meta name="twitter:card" content="summary_large_image" />
+      {props.image && <meta name="twitter:image" content="https://www.mazeriio.net/icon-128.png" />}
       {/* post */}
       {props.type === "Post" && (
         <>
