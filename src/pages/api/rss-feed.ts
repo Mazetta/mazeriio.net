@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { getPosts } from "src/apis/notion-client/getPosts"
+import { filterPosts } from "src/libs/utils/notion/filterPosts"
 import RSS from "rss"
 import { CONFIG } from "site.config"
 
@@ -10,10 +11,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const siteUrl = CONFIG.link || "https://www.mazeriio.net"
 
-    /*const filteredPosts = posts.filter(
-      (post: any) =>
-        post.status === "Public" || post.status === "PublicOnDetail"
-    )*/
+    const filteredPosts = filterPosts(posts, {
+      acceptStatus: ["Public", "PublicOnDetail"],
+    })
 
     const feed = new RSS({
       title: CONFIG.blog.title || "Mazeriio.net",
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       language: "fr",
     })
 
-    for (const post of posts) {
+    for (const post of filteredPosts) {
       feed.item({
         title: post.title,
         description: post.summary ?? "",
