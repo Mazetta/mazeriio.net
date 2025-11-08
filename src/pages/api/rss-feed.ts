@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const filteredPosts = posts.filter(
       (post: any) =>
-        post.status === "Public" || post.status === "Public on detail"
+        post.status === "Public" || post.status === "PublicOnDetail"
     )
 
     const feed = new RSS({
