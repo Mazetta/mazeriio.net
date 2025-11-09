@@ -18,6 +18,7 @@ const CONFIG = {
   blog: {
     title: "The Word of Maz",
     emoji:"🍄",
+    icon: "/favicon.ico",
     description: "Everything you need to know about myself!",
     scheme: "dark", // 'light' | 'dark' | 'system'
   },
