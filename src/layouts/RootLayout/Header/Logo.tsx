@@ -28,7 +28,7 @@ const StyledWrapper = styled(Link)`
   gap: 0.5rem;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.875rem; 
+  font-size: 1rem; 
   line-height: 1.25rem; 
   color: ${({ theme }) => theme.colors.gray12};
 `
