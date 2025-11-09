@@ -23,7 +23,7 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta content={props.title} property="og:title" />
       <meta content={props.description} property="og:description"/>
       <meta content="https://www.mazeriio.net" property="og:url" />
-      <meta content="https://www.mazeriio.net/icon-128.png" property="og:image"/>
+      <meta content="https://www.mazeriio.net/mushroom-128.png" property="og:image"/>
       <meta content="mazeriio.net" property="og:site_name"/>
       <meta content="#f83700" name="theme-color"/>
 
