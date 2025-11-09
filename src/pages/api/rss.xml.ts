@@ -26,7 +26,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       description: post.summary ?? "",
       url: `${siteUrl}/${post.slug}`,
       date: post.createdTime,
-      //date: post.date.start_date,
       // TODO: description/content?
     });
   });
