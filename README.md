@@ -42,7 +42,7 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
    - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` : For Google search console Plugin.
    - `NEXT_PUBLIC_NAVER_SITE_VERIFICATION` : For Naver search advisor Plugin.
    - `NEXT_PUBLIC_UTTERANCES_REPO` : For Utterances Plugin.
-
+ 
 ## 10 Steps to build your own morethan-log (by 23.06.23)
 
 <details>
