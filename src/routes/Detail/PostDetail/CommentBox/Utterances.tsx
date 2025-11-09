@@ -28,10 +28,6 @@ const Utterances = () => {
   return (
     <div
       ref={ref}
-      style={{
-        marginTop: "2rem",
-        width: "100%",
-      }}
     />
   )
 }
