@@ -1,14 +1,15 @@
 import styled from "@emotion/styled"
-import { config } from "process"
 import React from "react"
-import {
-  AiFillLinkedin,
-  AiOutlineGithub,
-  AiOutlineInstagram,
-  AiOutlineMail,
-} from "react-icons/ai"
+import { FaEnvelope, FaBluesky, FaXTwitter, FaRss, FaYoutube, FaGithub } from "react-icons/fa6"
 import { CONFIG } from "site.config"
 import { Emoji } from "src/components/Emoji"
+
+const FaEnvelopeIcon = FaEnvelope as unknown as React.ComponentType<any>
+const FaBlueskyIcon = FaBluesky as unknown as React.ComponentType<any>
+const FaXTwitterIcon = FaEnvelope as unknown as React.ComponentType<any>
+const FaRssIcon = FaRss as unknown as React.ComponentType<any>
+const FaYoutubeIcon = FaYoutube as unknown as React.ComponentType<any>
+const FaGithubIcon = FaGithub as unknown as React.ComponentType<any>
 
 const ContactCard: React.FC = () => {
   return (
@@ -20,28 +21,26 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillLinkedin className="icon" />
+            <FaRssIcon className="icon" />
             <div className="name">RSS</div>
           </a>
         )}
-        {CONFIG.profile.email && (
           <a
             href={`mailto:${CONFIG.profile.email}`}
             rel="noreferrer"
             target="_blank"
             css={{ overflow: "hidden" }}
           >
-            <AiOutlineMail className="icon" />
+            <FaEnvelopeIcon className="icon" />
             <div className="name">Email</div>
           </a>
-        )}
         {CONFIG.profile.bluesky && (
           <a
             href={`https://bsky.app/profile/${CONFIG.profile.bluesky}`}
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillLinkedin className="icon" />
+            <FaBlueskyIcon className="icon" />
             <div className="name">Bluesky</div>
           </a>
         )}
@@ -51,7 +50,7 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillLinkedin className="icon" />
+            <FaXTwitterIcon className="icon" />
             <div className="name">X</div>
           </a>
         )}
@@ -61,7 +60,7 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiFillLinkedin className="icon" />
+            <FaYoutubeIcon className="icon" />
             <div className="name">YouTube</div>
           </a>
         )}
@@ -71,7 +70,7 @@ const ContactCard: React.FC = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineGithub className="icon" />
+            <FaGithubIcon className="icon" />
             <div className="name">GitHub</div>
           </a>
         )}
