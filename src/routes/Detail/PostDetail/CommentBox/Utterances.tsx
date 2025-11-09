@@ -23,8 +23,10 @@ const Utterances: React.FC<Props> = ({ issueTerm }) => {
     script.setAttribute("src", "https://utteranc.es/client.js")
     script.setAttribute("crossorigin", "anonymous")
     script.setAttribute("async", `true`)
-    script.setAttribute("issue-term", issueTerm)
+    script.setAttribute("issue-term", "og:title")
     script.setAttribute("theme", theme)
+    script.setAttribute("label", "💬 Utterances")
+    script.setAttribute("repo", "Mazetta/mazeriio.net")
     const config: Record<string, string> = CONFIG.utterances.config
     Object.keys(config).forEach((key) => {
       script.setAttribute(key, config[key])
