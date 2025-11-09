@@ -9,9 +9,9 @@ const Logo = () => {
       <IconWrapper>
         <Image
           src={CONFIG.blog.icon}
-          alt="Logo icon"
-          width={24}
-          height={24}
+          alt=""
+          width={18}
+          height={18}
           style={{ objectFit: "contain" }}
         />
       </IconWrapper>
@@ -28,19 +28,21 @@ const StyledWrapper = styled(Link)`
   gap: 0.5rem;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
-  line-height: 1;
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
+  color: ${({ theme }) => theme.colors.gray12};
 `
 
 const IconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1.5rem;
+  height: 1.25rem; 
+  transform: translateY(1px); 
 `
 
 const Title = styled.span`
   display: flex;
   align-items: center;
-  line-height: 1;
+  line-height: 1.25rem;
 `
