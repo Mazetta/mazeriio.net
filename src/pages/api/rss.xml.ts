@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     feed.item({
       title: post.title,
       description: post.summary ?? "",
-      url: `https://www.mazeriio.net/${post.slug}`,
+      url: `${siteUrl}/${post.slug}`,
       date: post.date.start_date,
       // TODO: description/content?
     });

@@ -37,8 +37,8 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <link
         rel="alternate"
         type="application/rss+xml"
-        title="Flux RSS de Mazeriio.net"
-        href="https://www.mazeriio.net/api/rss-feed"
+        title="The Word of Maz's RSS Feed"
+        href="/api/rss.xml"
       />
     </Head>
   )
