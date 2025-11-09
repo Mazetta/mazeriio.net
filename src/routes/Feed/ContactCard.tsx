@@ -14,27 +14,17 @@ const ContactCard: React.FC = () => {
   return (
     <>
       <StyledTitle>
-        <Emoji>💬</Emoji> Contact
+        <Emoji>📲</Emoji> Follow Me
       </StyledTitle>
       <StyledWrapper>
-        {CONFIG.profile.github && (
+      {CONFIG.profile.rss && (
           <a
-            href={`https://github.com/${CONFIG.profile.github}`}
+            href={`${CONFIG.profile.rss}`}
             rel="noreferrer"
             target="_blank"
           >
-            <AiOutlineGithub className="icon" />
-            <div className="name">GitHub</div>
-          </a>
-        )}
-        {CONFIG.profile.instagram && (
-          <a
-            href={`https://www.instagram.com/${CONFIG.profile.instagram}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiOutlineInstagram className="icon" />
-            <div className="name">Instagram</div>
+            <AiFillLinkedin className="icon" />
+            <div className="name">RSS</div>
           </a>
         )}
         {CONFIG.profile.email && (
@@ -48,24 +38,44 @@ const ContactCard: React.FC = () => {
             <div className="name">Email</div>
           </a>
         )}
-        {CONFIG.profile.linkedin && (
+        {CONFIG.profile.bluesky && (
           <a
-            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
+            href={`https://bsky.app/profile/${CONFIG.profile.bluesky}`}
             rel="noreferrer"
             target="_blank"
           >
             <AiFillLinkedin className="icon" />
-            <div className="name">LinkedIn</div>
+            <div className="name">Bluesky</div>
           </a>
         )}
-        {CONFIG.profile.rss && (
+        {CONFIG.profile.twitter && (
           <a
-            href={`${CONFIG.profile.rss}`}
+            href={`https://x.com/${CONFIG.profile.twitter}`}
             rel="noreferrer"
             target="_blank"
           >
             <AiFillLinkedin className="icon" />
-            <div className="name">RSS</div>
+            <div className="name">X</div>
+          </a>
+        )}
+        {CONFIG.profile.youtube && (
+          <a
+            href={`https://www.youtube.com/${CONFIG.profile.bluesky}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <AiFillLinkedin className="icon" />
+            <div className="name">YouTube</div>
+          </a>
+        )}
+        {CONFIG.profile.github && (
+          <a
+            href={`https://github.com/${CONFIG.profile.github}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <AiOutlineGithub className="icon" />
+            <div className="name">GitHub</div>
           </a>
         )}
       </StyledWrapper>

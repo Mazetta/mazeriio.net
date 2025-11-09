@@ -7,11 +7,12 @@ const CONFIG = {
     bio: "I love watching movies, shows and playing video games!",
     email: "contact@mazeriio.net",
     github: "mazetta",
-    twitter: "@mazeriio",
+    rss: "https://www.mazeriio.net/api/rss.xml",
     bluesky: "@mazeriio.net",
+    twitter: "Mazeriio",
     linkedin: "",
     instagram: "",
-    rss: "https://www.mazeriio.net/api/rss.xml",
+    youtube: "@mazeriio",
   },
   projects: [
     {
