@@ -18,14 +18,14 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta charSet="UTF-8" />
       <meta name="description" content={props.description} />
       
-      {/* OpeGraph */}
+      {/* OpenGraph */}
       <meta content="website" property="og:type" />
       <meta content={props.title} property="og:title" />
       <meta content={props.description} property="og:description"/>
       <meta content="https://www.mazeriio.net" property="og:url" />
       <meta content="https://www.mazeriio.net/icon-128.png" property="og:image"/>
       <meta content="mazeriio.net" property="og:site_name"/>
-      <meta content="#6ac3ca" name="theme-color"/>
+      <meta content="#f83700" name="theme-color"/>
 
       {/* Post */}
       {props.type === "Post" && (
