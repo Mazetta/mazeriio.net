@@ -21,6 +21,7 @@ const CONFIG = {
   // blog setting (required)
   blog: {
     title: "The Word of Maz",
+    emoji:"🍄",
     description: "Everything you need to know about myself!",
     scheme: "dark", // 'light' | 'dark' | 'system'
   },
