@@ -5,21 +5,15 @@ const CONFIG = {
     image: "/mazeriio.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Writer, sometimes.",
     bio: "I love watching movies, shows and playing video games!",
-    email: "contact@mazeriio.net",
-    github: "mazetta",
     rss: "https://www.mazeriio.net/api/rss.xml",
+    email: "contact@mazeriio.net",
     bluesky: "@mazeriio.net",
     twitter: "Mazeriio",
-    linkedin: "",
-    instagram: "",
-    youtube: "@mazeriio",
+    youtube: "@Mazeriio",
+    reddit: "Mazeriio",
+    github: "mazetta",
   },
-  projects: [
-    {
-      name: `Subscribe`,
-      href: "https://www.mazeriio.net/api/rss.xml",
-    },
-  ],
+  
   // blog setting (required)
   blog: {
     title: "The Word of Maz",

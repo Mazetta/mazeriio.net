@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import React from "react"
-import { FaEnvelope, FaBluesky, FaXTwitter, FaRss, FaYoutube, FaGithub } from "react-icons/fa6"
+import { FaEnvelope, FaBluesky, FaXTwitter, FaRss, FaYoutube, FaGithub, FaReddit } from "react-icons/fa6"
 import { CONFIG } from "site.config"
 import { Emoji } from "src/components/Emoji"
 
@@ -10,6 +10,7 @@ const FaXTwitterIcon = FaXTwitter as unknown as React.ComponentType<any>
 const FaRssIcon = FaRss as unknown as React.ComponentType<any>
 const FaYoutubeIcon = FaYoutube as unknown as React.ComponentType<any>
 const FaGithubIcon = FaGithub as unknown as React.ComponentType<any>
+const FaRedditIcon = FaReddit as unknown as React.ComponentType<any>
 
 const ContactCard: React.FC = () => {
   return (
@@ -52,6 +53,16 @@ const ContactCard: React.FC = () => {
           >
             <FaXTwitterIcon className="icon" />
             <div className="name">X</div>
+          </a>
+        )}
+        {CONFIG.profile.reddit && (
+          <a
+            href={`https://www.reddit.com/user/${CONFIG.profile.reddit}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <FaRedditIcon className="icon" />
+            <div className="name">Reddit</div>
           </a>
         )}
         {CONFIG.profile.youtube && (
