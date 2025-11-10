@@ -47,19 +47,19 @@ const PostDetail: React.FC<Props> = () => {
         <ShareSection>
 
           <BlueskyShareButton url={postUrl}>
-            <BlueskyIcon size={32} />
+            <BlueskyIcon size={16} round />
           </BlueskyShareButton>
 
           <TwitterShareButton url={postUrl} title={title}>
-            <TwitterIcon size={32} />
+            <TwitterIcon size={16} round />
           </TwitterShareButton>
 
           <RedditShareButton url={postUrl} title={title}>
-            <RedditIcon size={32} />
+            <RedditIcon size={16} round />
           </RedditShareButton>
 
           <ThreadsShareButton url={postUrl} title={title}>
-            <ThreadsIcon size={32} />
+            <ThreadsIcon size={16} round />
           </ThreadsShareButton>
 
         </ShareSection>
