@@ -6,6 +6,16 @@ import Category from "src/components/Category"
 import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  BlueskyShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  BlueskyIcon,
+  WhatsappIcon,
+} from "react-share"
 
 type Props = {}
 
@@ -15,6 +25,8 @@ const PostDetail: React.FC<Props> = () => {
   if (!data) return null
 
   const category = (data.category && data.category?.[0]) || undefined
+  const postUrl = `${typeof window !== "undefined" ? window.location.href : ""}`
+  const title = data.title || "Partager cet article"
 
   return (
     <StyledWrapper>
@@ -30,6 +42,26 @@ const PostDetail: React.FC<Props> = () => {
         <div>
           <NotionRenderer recordMap={data.recordMap} />
         </div>
+
+        {/* --- Section partage --- */}
+        <ShareSection>
+          <FacebookShareButton url={postUrl} title={title}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+
+          <TwitterShareButton url={postUrl} title={title}>
+            <TwitterIcon size={32} round />
+          </TwitterShareButton>
+
+          <BlueskyShareButton url={postUrl}>
+            <BlueskyIcon size={32} round />
+          </BlueskyShareButton>
+
+          <WhatsappShareButton url={postUrl} title={title}>
+            <WhatsappIcon size={32} round />
+          </WhatsappShareButton>
+        </ShareSection>
+
         {data.type[0] === "Post" && (
           <>
             <Footer />
@@ -42,6 +74,13 @@ const PostDetail: React.FC<Props> = () => {
 }
 
 export default PostDetail
+
+const ShareSection = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  align-items: center;
+`
 
 const StyledWrapper = styled.div`
   padding-left: 1.5rem;
