@@ -1,7 +1,23 @@
-function Utterances() {
-  const ref = useRef<HTMLDivElement | null>(null);
+import { CONFIG } from "site.config"
+import { useEffect } from "react"
+import styled from "@emotion/styled"
+import useScheme from "src/hooks/useScheme"
+import { useRouter } from "next/router"
+
+//TODO: useRef?
+
+type Props = {
+  issueTerm: string
+}
+
+const Utterances: React.FC<Props> = ({ issueTerm }) => {
+  const [scheme] = useScheme()
+  const router = useRouter()
+
   useEffect(() => {
     const scriptElement = document.createElement('script');
+    const theme = `github-${scheme}`
+    const anchor = document.getElementById("comments")
     scriptElement.async = true;
     scriptElement.crossOrigin = 'anonymous';
     scriptElement.src = 'https://utteranc.es/client.js';
@@ -14,13 +30,30 @@ function Utterances() {
     );
     scriptElement.setAttribute(
       'theme',
-      'preferred-color-scheme',
+      theme,
     );
-
-    ref.current?.appendChild(scriptElement);
-  }, []);
-
-  return <div ref={ref} />;
+    const config: Record<string, string> = CONFIG.utterances.config
+    Object.keys(config).forEach((key) => {
+      script.setAttribute(key, config[key])
+    })
+    anchor.appendChild(script)
+    return () => {
+      anchor.innerHTML = ""
+    }
+  }, [scheme, router])
+  return (
+    <>
+      <StyledWrapper id="comments">
+        <div className="utterances-frame"></div>
+      </StyledWrapper>
+    </>
+  )
 }
 
-export default Utterances;
+export default Utterances
+
+const StyledWrapper = styled.div`
+  @media (min-width: 768px) {
+    margin-left: -4rem;
+  }
+`
