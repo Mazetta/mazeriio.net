@@ -7,14 +7,14 @@ import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
 import {
-  FacebookShareButton,
-  TwitterShareButton,
   BlueskyShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  TwitterIcon,
+  TwitterShareButton,
+  RedditShareButton,
+  ThreadsShareButton,
   BlueskyIcon,
-  WhatsappIcon,
+  TwitterIcon,
+  RedditIcon,
+  ThreadsIcon,
 } from "react-share"
 
 type Props = {}
@@ -45,27 +45,29 @@ const PostDetail: React.FC<Props> = () => {
 
         {/* --- Section partage --- */}
         <ShareSection>
-          <FacebookShareButton url={postUrl} title={title}>
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
-
-          <TwitterShareButton url={postUrl} title={title}>
-            <TwitterIcon size={32} round />
-          </TwitterShareButton>
 
           <BlueskyShareButton url={postUrl}>
-            <BlueskyIcon size={32} round />
+            <BlueskyIcon size={32} />
           </BlueskyShareButton>
 
-          <WhatsappShareButton url={postUrl} title={title}>
-            <WhatsappIcon size={32} round />
-          </WhatsappShareButton>
+          <TwitterShareButton url={postUrl} title={title}>
+            <TwitterIcon size={32} />
+          </TwitterShareButton>
+
+          <RedditShareButton url={postUrl} title={title}>
+            <RedditIcon size={32} />
+          </RedditShareButton>
+
+          <ThreadsShareButton url={postUrl} title={title}>
+            <ThreadsIcon size={32} />
+          </ThreadsShareButton>
+
         </ShareSection>
 
         {data.type[0] === "Post" && (
           <>
-            <Footer />
             <CommentBox data={data} />
+            <Footer />
           </>
         )}
       </article>
