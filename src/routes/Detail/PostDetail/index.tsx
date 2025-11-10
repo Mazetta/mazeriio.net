@@ -78,7 +78,6 @@ const PostDetail: React.FC<Props> = () => {
 export default PostDetail
 
 const ShareSection = styled.div`
-  display: flex;
   gap: 0.5rem;
   margin: 2rem 0;
   align-items: center;
