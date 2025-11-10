@@ -2,7 +2,7 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Mazeriio",
-    image: "/mazeriio.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
+    image: "/mazeriio-logo.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Writer, sometimes.",
     bio: "I love watching movies, shows and playing video games!",
     rss: "https://www.mazeriio.net/api/rss.xml",

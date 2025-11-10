@@ -32,6 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   res.setHeader("Content-Type", "application/rss+xml");
   res.setHeader("x-clacks-overhead", "GNU Bram Moolenaar");
-  res.write(feed.xml());
+  res.write(feed.xml({ indent: true }));
   res.end();
 }
