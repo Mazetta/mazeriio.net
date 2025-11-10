@@ -47,19 +47,19 @@ const PostDetail: React.FC<Props> = () => {
         <ShareSection>
 
           <BlueskyShareButton url={postUrl}>
-            <BlueskyIcon size={16} round />
+            <BlueskyIcon size={24} round />
           </BlueskyShareButton>
 
           <TwitterShareButton url={postUrl} title={title}>
-            <TwitterIcon size={16} round />
+            <TwitterIcon size={24} round />
           </TwitterShareButton>
 
           <RedditShareButton url={postUrl} title={title}>
-            <RedditIcon size={16} round />
+            <RedditIcon size={24} round />
           </RedditShareButton>
 
           <ThreadsShareButton url={postUrl} title={title}>
-            <ThreadsIcon size={16} round />
+            <ThreadsIcon size={24} round />
           </ThreadsShareButton>
 
         </ShareSection>
@@ -79,8 +79,8 @@ export default PostDetail
 
 const ShareSection = styled.div`
   display: flex;
-  gap: 0.75rem;
-  margin: 2rem 0;
+  gap: 0.5rem;
+  margin: 0 auto;
   align-items: center;
 `
 
