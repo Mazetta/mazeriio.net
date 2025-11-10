@@ -9,12 +9,12 @@ import usePostQuery from "src/hooks/usePostQuery"
 import {
   BlueskyShareButton,
   TwitterShareButton,
-  RedditShareButton,
   ThreadsShareButton,
+  EmailShareButton,
   BlueskyIcon,
   TwitterIcon,
-  RedditIcon,
   ThreadsIcon,
+  EmailIcon,
 } from "react-share"
 
 type Props = {}
@@ -53,13 +53,13 @@ const PostDetail: React.FC<Props> = () => {
             <TwitterIcon size={24} round />
           </TwitterShareButton>
 
-          <RedditShareButton url={postUrl} title={title}>
-            <RedditIcon size={24} round />
-          </RedditShareButton>
-
           <ThreadsShareButton url={postUrl} title={title}>
             <ThreadsIcon size={24} round />
           </ThreadsShareButton>
+          
+          <EmailShareButton url={postUrl} title={title}>
+            <EmailIcon size={24} round />
+          </EmailShareButton>
 
         </ShareSection>
 
