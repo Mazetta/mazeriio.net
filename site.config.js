@@ -4,7 +4,7 @@ const CONFIG = {
     name: "Mazeriio",
     image: "/mazeriio-logo.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "writer, sometimes.",
-    bio: "I love watching series, playing games and petting my cats.",
+    bio: "I love watching series, movies and playing video games.",
     rss: "https://www.mazeriio.net/api/rss.xml",
     email: "contact@mazeriio.net",
     bluesky: "@mazeriio.net",
