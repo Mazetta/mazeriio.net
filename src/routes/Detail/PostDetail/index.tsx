@@ -32,8 +32,8 @@ const PostDetail: React.FC<Props> = () => {
    const handleRedditShare = () => {
     const width = 660
     const height = 460
-    const left = window.innerWidth / 2 - width / 2
-    const top = window.innerHeight / 2 - height / 2
+    const left = window.screenX + (window.outerWidth - width) / 2
+    const top = window.screenY + (window.outerHeight - height) / 2
     const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(
       postUrl
     )}&title=${encodeURIComponent(title)}`
