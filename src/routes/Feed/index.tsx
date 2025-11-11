@@ -73,8 +73,7 @@ const StyledWrapper = styled.div`
 
   > .lt {
     display: none;
-    overflow: scroll;
-    position: sticky;
+    overflow: visible;
     grid-column: span 2 / span 2;
     top: ${HEADER_HEIGHT - 10}px;
 
@@ -121,7 +120,6 @@ const StyledWrapper = styled.div`
 
     display: none;
     overflow: visible;
-    position: sticky;
     top: ${HEADER_HEIGHT - 10}px;
 
     @media (min-width: 1024px) {
