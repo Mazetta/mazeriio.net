@@ -12,10 +12,11 @@ import {
   ThreadsShareButton,
   EmailShareButton,
   BlueskyIcon,
-  TwitterIcon,
+  XIcon,
   ThreadsIcon,
   EmailIcon,
 } from "react-share"
+import { RedditShare } from "react-share-kit"
 
 type Props = {}
 
@@ -50,12 +51,14 @@ const PostDetail: React.FC<Props> = () => {
           </BlueskyShareButton>
 
           <TwitterShareButton url={postUrl} title={title}>
-            <TwitterIcon size={24} round />
+            <XIcon size={24} round color="gray" />
           </TwitterShareButton>
 
           <ThreadsShareButton url={postUrl} title={title}>
             <ThreadsIcon size={24} round />
           </ThreadsShareButton>
+
+          <RedditShare url={postUrl} title={title} size={24} round />
           
           <EmailShareButton url={postUrl} subject={title}>
             <EmailIcon size={24} round />
