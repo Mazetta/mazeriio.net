@@ -49,4 +49,7 @@ const StyledWrapper = styled.div`
   @media (min-width: 768px) {
     margin-left: -4rem;
   }
+
+  .utterances-frame {
+    mawx-width: 100%;
 `
