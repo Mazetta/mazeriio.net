@@ -51,5 +51,5 @@ const StyledWrapper = styled.div`
   }
 
   .utterances-frame {
-    mawx-width: 100%;
+    max-width: 100%;
 `
