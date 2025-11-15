@@ -2,8 +2,7 @@ import Giscus from '@giscus/react';
 import useScheme from 'src/hooks/useScheme';
 
 export default function GiscusComments() {
-    const [scheme] = useScheme()
-    const theme = `github-${scheme}`;
+    const [scheme] = useScheme();
   return (
     <Giscus
       id="comments"
@@ -16,7 +15,7 @@ export default function GiscusComments() {
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="top"
-      theme={theme}
+      theme={scheme}
       lang="en"
       loading="lazy"
     />
