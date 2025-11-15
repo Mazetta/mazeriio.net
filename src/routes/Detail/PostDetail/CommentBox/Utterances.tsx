@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
     margin-left: -4rem;
   }
 
-  .utterances-frame {
-    max-height: 590px;
+  .utterances {
+    height: 590px;
     overflow: visible;
 `
