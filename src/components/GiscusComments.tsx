@@ -19,6 +19,6 @@ export default function GiscusComments() {
       theme={theme}
       lang="en"
       loading="lazy"
-    />
+    /> 
   );
 }
