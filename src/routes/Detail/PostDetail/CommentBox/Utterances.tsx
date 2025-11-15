@@ -49,12 +49,4 @@ const StyledWrapper = styled.div`
   @media (min-width: 768px) {
     margin-left: -4rem;
   }
-
-  .utterances {
-    height: 590px;
-    overflow: visible;
-
-  .utterances-frame {
-    height: 590px;
-    overflow: visible;
 `
