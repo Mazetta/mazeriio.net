@@ -62,8 +62,8 @@ const PostDetail: React.FC<Props> = () => {
           <NotionRenderer recordMap={data.recordMap} />
         </div>
         
-        <div className="label">Share:</div>
         <ShareSection>
+          <div>Share this post:</div>
           <TooltipWrapper>
             <span>Share on Bluesky</span>
             <BlueskyShareButton url={postUrl} title={title}>
