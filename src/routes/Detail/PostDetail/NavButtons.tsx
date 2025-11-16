@@ -21,7 +21,7 @@ const NavButtons: React.FC<Props> = () => {
   const previousPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-count={(nextPost && previousPost) ? 2 : 1}>
       {nextPost && (
         <a onClick={() => router.push(`/${nextPost.slug}`)}>
           ← Next: {nextPost.title}
@@ -41,7 +41,10 @@ export default NavButtons
 
 const StyledWrapper = styled.div`
   display: flex;
-  justify-content: nextPost && previousPost ? "space-between" : "center",
+  justify-content: space-between;
+  &[data-count="1"] {
+    justify-content: center;
+  }
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
