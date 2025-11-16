@@ -24,13 +24,13 @@ const NavButtons: React.FC<Props> = () => {
     <StyledWrapper data-count={(nextPost && previousPost) ? 2 : 1}>
       {nextPost && (
         <a onClick={() => router.push(`/${nextPost.slug}`)}>
-          ← Next: {nextPost.title}
+          ← Next
         </a>
       )}
 
       {previousPost && (
         <a onClick={() => router.push(`/${previousPost.slug}`)}>
-          Previous: {previousPost.title} →
+          Previous →
         </a>
       )}
     </StyledWrapper>
