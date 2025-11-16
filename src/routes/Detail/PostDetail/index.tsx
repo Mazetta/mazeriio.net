@@ -118,7 +118,7 @@ export default PostDetail
 const ShareSection = styled.div`
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1.5rem 0;
+  margin: 1.5rem 0;
   align-items: center;
 `
 
