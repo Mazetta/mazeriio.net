@@ -31,8 +31,8 @@ const PostDetail: React.FC<Props> = () => {
 
   const currentIndex = allPosts.findIndex((p) => p.slug === data.slug)
 
-  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
-  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+  const previousPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   const category = (data.category && data.category?.[0]) || undefined
   const postUrl = `${typeof window !== "undefined" ? window.location.href : ""}`
@@ -56,6 +56,21 @@ const PostDetail: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <article>
+
+      <NavWrapper>
+          {nextPost && (
+            <NavButton href={`/${nextPost.slug}`}>
+              ← Next: {nextPost.title}
+            </NavButton>
+          )}
+
+          {previousPost && (
+            <NavButton href={`/${previousPost.slug}`}>
+                Previous: {previousPost.title} →
+            </NavButton>
+          )}
+        </NavWrapper>
+
         {category && (
           <div css={{ marginBottom: "0.5rem" }}>
             <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
@@ -63,20 +78,6 @@ const PostDetail: React.FC<Props> = () => {
             </Category>
           </div>
         )}
-        
-        <NavWrapper>
-          {prevPost && (
-            <NavButton href={`/${prevPost.slug}`}>
-              ← Previous: {prevPost.title}
-            </NavButton>
-          )}
-
-          {nextPost && (
-            <NavButton href={`/${nextPost.slug}`}>
-                Next: {nextPost.title} →
-            </NavButton>
-          )}
-        </NavWrapper>
 
         {data.type[0] === "Post" && <PostHeader data={data} />}
 
