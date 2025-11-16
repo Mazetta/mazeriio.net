@@ -53,21 +53,6 @@ const CONFIG = {
       siteVerification: process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION || "",
     },
   },
-  utterances: {
-    enable: true,
-    config: {
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO || "",
-      "issue-term": "og:title",
-      label: "comment",
-    },
-  },
-  cusdis: {
-    enable: false,
-    config: {
-      host: "https://cusdis.com",
-      appid: "", // Embed Code -> data-app-id value
-    },
-  },
   isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
   revalidateTime: 60, // revalidate time for [slug], index
 }

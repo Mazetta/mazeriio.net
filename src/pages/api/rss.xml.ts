@@ -7,7 +7,7 @@ import { CONFIG } from "site.config"
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Get all the posts
   const posts = filterPosts(await getPosts(), {
-      acceptStatus: ["Public", "PublicOnDetail"],
+      acceptStatus: ["Public"],
     })
 
   // create an RSS feed w/ some information
