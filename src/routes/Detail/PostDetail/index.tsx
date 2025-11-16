@@ -6,6 +6,7 @@ import Category from "src/components/Category"
 import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
+import useScheme from "src/hooks/useScheme"
 import {
   BlueskyShareButton,
   TwitterShareButton,
@@ -61,25 +62,40 @@ const PostDetail: React.FC<Props> = () => {
 
         <ShareSection>
 
-          <BlueskyShareButton url={postUrl} title={title}>
-            <BlueskyIcon size={24} round />
-          </BlueskyShareButton>
+          <TooltipWrapper scheme={scheme}>
+            <span>Share on Bluesky</span>
+            <BlueskyShareButton url={postUrl} title={title}>
+              <BlueskyIcon size={24} round />
+            </BlueskyShareButton>
+          </TooltipWrapper>
 
-          <TwitterShareButton url={postUrl} title={title}>
-            <XIcon size={24} round />
-          </TwitterShareButton>
+          <TooltipWrapper scheme={scheme}>
+            <span>Share on X</span>
+            <TwitterShareButton url={postUrl} title={title}>
+              <XIcon size={24} round />
+            </TwitterShareButton>
+          </TooltipWrapper>
 
-          <ThreadsShareButton url={postUrl} title={title}>
-            <ThreadsIcon size={24} round />
-          </ThreadsShareButton>
+          <TooltipWrapper scheme={scheme}>
+            <span>Share on Threads</span>
+            <ThreadsShareButton url={postUrl} title={title}>
+              <ThreadsIcon size={24} round />
+            </ThreadsShareButton>
+          </TooltipWrapper>
 
-          <CustomRedditButton onClick={handleRedditShare}>
-            <RedditIcon size={24} round />
-          </CustomRedditButton>
-          
-          <EmailShareButton url={postUrl} subject={title}>
-            <EmailIcon size={24} round />
-          </EmailShareButton>
+          <TooltipWrapper scheme={scheme}>
+            <span>Share on Reddit</span>
+            <CustomRedditButton onClick={handleRedditShare}>
+              <RedditIcon size={24} round />
+            </CustomRedditButton>
+          </TooltipWrapper>
+
+          <TooltipWrapper scheme={scheme}>
+            <span>Share via Email</span>
+            <EmailShareButton url={postUrl} subject={title}>
+              <EmailIcon size={24} round />
+            </EmailShareButton>
+          </TooltipWrapper>
 
         </ShareSection>
 
@@ -95,6 +111,8 @@ const PostDetail: React.FC<Props> = () => {
 }
 
 export default PostDetail
+
+const [scheme] = useScheme()
 
 const ShareSection = styled.div`
   display: flex;
@@ -126,5 +144,37 @@ const StyledWrapper = styled.div`
   > article {
     margin: 0 auto;
     max-width: 42rem;
+  }
+`
+
+const TooltipWrapper = styled.div<{ scheme: string }>`
+  position: relative;
+  display: inline-block;
+
+  &:hover span {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -4px);
+  }
+
+  span {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate(-50%, 0);
+    padding: 4px 8px;
+
+    background: ${({ scheme }) =>
+      scheme === "light" ? "rgba(0,0,0,0.75)" : "rgba(255,255,255,0.85)"};
+
+    color: ${({ scheme }) => (scheme === "light" ? "white" : "black")};
+
+    font-size: 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
   }
 `
