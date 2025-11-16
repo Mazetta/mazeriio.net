@@ -23,6 +23,8 @@ type Props = {}
 
 const PostDetail: React.FC<Props> = () => {
   const data = usePostQuery()
+  const [scheme] = useScheme()
+
 
   if (!data) return null
 
@@ -111,8 +113,6 @@ const PostDetail: React.FC<Props> = () => {
 }
 
 export default PostDetail
-
-const [scheme] = useScheme()
 
 const ShareSection = styled.div`
   display: flex;
