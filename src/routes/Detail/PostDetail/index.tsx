@@ -63,21 +63,22 @@ const PostDetail: React.FC<Props> = () => {
             </Category>
           </div>
         )}
-        {data.type[0] === "Post" && <PostHeader data={data} />}
-
+        
         <NavWrapper>
           {prevPost && (
-            <NavButton href={`/posts/${prevPost.slug}`}>
+            <NavButton href={`/${prevPost.slug}`}>
               ← Previous: {prevPost.title}
             </NavButton>
           )}
 
           {nextPost && (
-            <NavButton href={`/posts/${nextPost.slug}`}>
+            <NavButton href={`/${nextPost.slug}`}>
                 Next: {nextPost.title} →
             </NavButton>
           )}
         </NavWrapper>
+
+        {data.type[0] === "Post" && <PostHeader data={data} />}
 
         <div>
           <NotionRenderer recordMap={data.recordMap} />
