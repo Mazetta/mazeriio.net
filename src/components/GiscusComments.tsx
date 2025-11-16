@@ -22,7 +22,7 @@ const GiscusComments: React.FC = () => {
       script.setAttribute("reactionsenabled", "1")
       script.setAttribute("emitmetadata", "0")
       script.setAttribute("inputposition", "top")
-      script.setAttribute("theme", theme)
+      script.setAttribute("theme", "dark")
       script.setAttribute("loading", "lazy")
       script.setAttribute("lang", "en")
       script.setAttribute("crossorigin", "anonymous")
