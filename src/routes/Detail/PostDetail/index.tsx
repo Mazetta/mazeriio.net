@@ -164,10 +164,15 @@ const TooltipWrapper = styled.div<{ scheme: string }>`
     transform: translate(-50%, 0);
     padding: 4px 8px;
 
-    background: ${({ scheme }) =>
-      scheme === "light" ? "rgba(0,0,0,0.75)" : "rgba(255,255,255,0.85)"};
+    background: ${({ theme }) =>
+      theme.scheme === "light"
+        ? "rgba(0,0,0,0.75)"           // dark tooltip on light mode
+        : theme.colors.gray3};        // soft light tooltip on dark mode
 
-    color: ${({ scheme }) => (scheme === "light" ? "white" : "black")};
+    color: ${({ theme }) =>
+      theme.scheme === "light"
+        ? "white"
+        : theme.colors.gray12};       // dark text on tooltip in dark mode
 
     font-size: 0.75rem;
     border-radius: 6px;
@@ -177,4 +182,4 @@ const TooltipWrapper = styled.div<{ scheme: string }>`
     transition: all 0.2s ease;
     pointer-events: none;
   }
-`
+`;
