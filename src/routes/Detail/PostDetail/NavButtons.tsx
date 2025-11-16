@@ -30,7 +30,7 @@ const NavButtons: React.FC<Props> = () => {
 
       {previousPost && (
         <a onClick={() => router.push(`/${previousPost.slug}`)}>
-          ← Next: {previousPost.title}
+          Previous: {previousPost.title} →
         </a>
       )}
     </StyledWrapper>
@@ -45,7 +45,7 @@ const StyledWrapper = styled.div`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     cursor: pointer;
 
     :hover {
