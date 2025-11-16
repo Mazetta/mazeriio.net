@@ -41,7 +41,7 @@ export default NavButtons
 
 const StyledWrapper = styled.div`
   display: flex;
-  justifyContent: nextPost && previousPost ? "space-between" : "center",
+  justify-content: nextPost && previousPost ? "space-between" : "center",
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
