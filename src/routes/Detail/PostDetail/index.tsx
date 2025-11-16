@@ -64,35 +64,35 @@ const PostDetail: React.FC<Props> = () => {
 
         <ShareSection>
 
-          <TooltipWrapper scheme={scheme}>
+          <TooltipWrapper>
             <span>Share on Bluesky</span>
             <BlueskyShareButton url={postUrl} title={title}>
               <BlueskyIcon size={24} round />
             </BlueskyShareButton>
           </TooltipWrapper>
 
-          <TooltipWrapper scheme={scheme}>
+          <TooltipWrapper>
             <span>Share on X</span>
             <TwitterShareButton url={postUrl} title={title}>
               <XIcon size={24} round />
             </TwitterShareButton>
           </TooltipWrapper>
 
-          <TooltipWrapper scheme={scheme}>
+          <TooltipWrapper>
             <span>Share on Threads</span>
             <ThreadsShareButton url={postUrl} title={title}>
               <ThreadsIcon size={24} round />
             </ThreadsShareButton>
           </TooltipWrapper>
 
-          <TooltipWrapper scheme={scheme}>
+          <TooltipWrapper>
             <span>Share on Reddit</span>
             <CustomRedditButton onClick={handleRedditShare}>
               <RedditIcon size={24} round />
             </CustomRedditButton>
           </TooltipWrapper>
 
-          <TooltipWrapper scheme={scheme}>
+          <TooltipWrapper>
             <span>Share via Email</span>
             <EmailShareButton url={postUrl} subject={title}>
               <EmailIcon size={24} round />
@@ -147,7 +147,7 @@ const StyledWrapper = styled.div`
   }
 `
 
-const TooltipWrapper = styled.div<{ scheme: string }>`
+const TooltipWrapper = styled.div`
   position: relative;
   display: inline-block;
 
@@ -166,13 +166,11 @@ const TooltipWrapper = styled.div<{ scheme: string }>`
 
     background: ${({ theme }) =>
       theme.scheme === "light"
-        ? "rgba(0,0,0,0.75)"           // dark tooltip on light mode
-        : theme.colors.gray3};        // soft light tooltip on dark mode
+        ? "rgba(0,0,0,0.75)"
+        : "rgba(255,255,255,0.85)"};
 
     color: ${({ theme }) =>
-      theme.scheme === "light"
-        ? "white"
-        : theme.colors.gray12};       // dark text on tooltip in dark mode
+      theme.scheme === "light" ? "white" : "black"};
 
     font-size: 0.75rem;
     border-radius: 6px;
@@ -182,4 +180,4 @@ const TooltipWrapper = styled.div<{ scheme: string }>`
     transition: all 0.2s ease;
     pointer-events: none;
   }
-`;
+`
