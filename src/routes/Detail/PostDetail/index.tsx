@@ -63,7 +63,7 @@ const PostDetail: React.FC<Props> = () => {
         </div>
         
         <ShareSection>
-          <div>Share this post:</div>
+          <div>Share this post:\n</div>
           <TooltipWrapper>
             <span>Share on Bluesky</span>
             <BlueskyShareButton url={postUrl} title={title}>
