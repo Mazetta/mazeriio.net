@@ -1,12 +1,12 @@
 import React from "react"
 import PostHeader from "./PostHeader"
 import Footer from "./PostFooter"
+import NavButtons from "./NavButtons"
 import CommentBox from "./CommentBox"
 import Category from "src/components/Category"
 import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
-import usePostsQuery from "src/hooks/usePostsQuery"
 import useScheme from "src/hooks/useScheme"
 import {
   BlueskyShareButton,
@@ -23,16 +23,11 @@ import {
 type Props = {}
 
 const PostDetail: React.FC<Props> = () => {
-  const [scheme] = useScheme()
-  const allPosts = usePostsQuery()
-
   const data = usePostQuery()
+  const [scheme] = useScheme()
+
+
   if (!data) return null
-
-  const currentIndex = allPosts.findIndex((p) => p.slug === data.slug)
-
-  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
-  const previousPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   const category = (data.category && data.category?.[0]) || undefined
   const postUrl = `${typeof window !== "undefined" ? window.location.href : ""}`
@@ -56,21 +51,7 @@ const PostDetail: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <article>
-
-      <NavWrapper>
-          {nextPost && (
-            <NavButton href={`/${nextPost.slug}`}>
-              ← Next: {nextPost.title}
-            </NavButton>
-          )}
-
-          {previousPost && (
-            <NavButton href={`/${previousPost.slug}`}>
-                Previous: {previousPost.title} →
-            </NavButton>
-          )}
-        </NavWrapper>
-
+        <NavButtons />
         {category && (
           <div css={{ marginBottom: "0.5rem" }}>
             <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
@@ -78,9 +59,7 @@ const PostDetail: React.FC<Props> = () => {
             </Category>
           </div>
         )}
-
         {data.type[0] === "Post" && <PostHeader data={data} />}
-
         <div>
           <NotionRenderer recordMap={data.recordMap} />
         </div>
@@ -135,31 +114,6 @@ const PostDetail: React.FC<Props> = () => {
 }
 
 export default PostDetail
-
-const NavWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-  gap: 1rem;
-`
-
-const NavButton = styled.a`
-  flex: 1;
-  padding: 0.75rem 1rem;
-  background-color: ${({ theme }) =>
-    theme.scheme === "light" ? theme.colors.gray3 : theme.colors.gray5};
-  color: ${({ theme }) =>
-    theme.scheme === "light" ? theme.colors.gray12 : theme.colors.gray1};
-  border-radius: 0.75rem;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-align: center;
-
-  &:hover {
-    opacity: 0.85;
-  }
-`
 
 const ShareSection = styled.div`
   display: flex;
