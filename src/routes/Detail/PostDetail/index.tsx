@@ -104,8 +104,8 @@ const PostDetail: React.FC<Props> = () => {
 
         {data.type[0] === "Post" && (
           <>
-            <Footer />
             <CommentBox data={data} />
+            <Footer />
           </>
         )}
       </article>
