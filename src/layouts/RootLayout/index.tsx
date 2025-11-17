@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import { ThemeProvider } from "./ThemeProvider"
 import useScheme from "src/hooks/useScheme"
 import Header from "./Header"
@@ -47,32 +47,54 @@ type Props = {
 
 const RootLayout = ({ children }: Props) => {
   const [scheme] = useScheme()
+  const [mounted, setMounted] = useState(false)
+
   useGtagEffect()
+
   useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+    Prism.highlightAll()
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted) {
+      document.body.dataset.theme = scheme
+    }
+  }, [scheme, mounted])
 
   return (
     <ThemeProvider scheme={scheme}>
-       <Global
+      <Global
         styles={css`
-          body {
-            transition: background-color 0.25s ease, color 0.25s ease;
+          /* transition désactivée par défaut pour éviter le flicker SSR */
+          body, * {
+            transition: none !important;
           }
 
-          * {
-            transition:
-              background-color 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease;
+          /* transition activée après mount */
+          [data-mounted="true"] body,
+          [data-mounted="true"] * {
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.2s ease;
+          }
+
+          /* définition rapide des thèmes */
+          body[data-theme="light"] {
+            background-color: #fff;
+            color: #111;
+          }
+
+          body[data-theme="dark"] {
+            background-color: #111;
+            color: #eee;
           }
         `}
       />
-      <Scripts />
-      {/* // TODO: replace react query */}
-      {/* {metaConfig.type !== "Paper" && <Header />} */}
-      <Header fullWidth={false} />
-      <StyledMain>{children}</StyledMain>
+
+      <div data-mounted={mounted}>
+        <Scripts />
+        <Header fullWidth={false} />
+        <StyledMain>{children}</StyledMain>
+      </div>
     </ThemeProvider>
   )
 }
