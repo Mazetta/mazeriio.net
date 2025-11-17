@@ -41,8 +41,6 @@ const ShareButtons: React.FC<Props> = () => {
 
   return (
     <ShareSection>
-
-      {/* X */}
       <TooltipWrapper>
         <span>Share on X</span>
         <TwitterShareButton url={postUrl} title={title}>
@@ -50,7 +48,6 @@ const ShareButtons: React.FC<Props> = () => {
         </TwitterShareButton>
       </TooltipWrapper>
 
-      {/* Reddit */}
       <TooltipWrapper>
         <span>Share on Reddit</span>
         <CustomButton onClick={handleRedditShare}>
@@ -58,7 +55,6 @@ const ShareButtons: React.FC<Props> = () => {
         </CustomButton>
       </TooltipWrapper>
 
-      {/* WhatsApp */}
       <TooltipWrapper>
         <span>Share on WhatsApp</span>
         <WhatsappShareButton url={postUrl} title={title}>
@@ -66,7 +62,6 @@ const ShareButtons: React.FC<Props> = () => {
         </WhatsappShareButton>
       </TooltipWrapper>
 
-      {/* Facebook */}
       <TooltipWrapper>
         <span>Share on Facebook</span>
         <FacebookShareButton url={postUrl} title={title}>
@@ -74,7 +69,6 @@ const ShareButtons: React.FC<Props> = () => {
         </FacebookShareButton>
       </TooltipWrapper>
 
-      {/* Threads */}
       <TooltipWrapper>
         <span>Share on Threads</span>
         <ThreadsShareButton url={postUrl} title={title}>
@@ -82,7 +76,6 @@ const ShareButtons: React.FC<Props> = () => {
         </ThreadsShareButton>
       </TooltipWrapper>
 
-      {/* Bluesky */}
       <TooltipWrapper>
         <span>Share on Bluesky</span>
         <BlueskyShareButton url={postUrl} title={title}>
@@ -90,14 +83,12 @@ const ShareButtons: React.FC<Props> = () => {
         </BlueskyShareButton>
       </TooltipWrapper>
 
-      {/* Email */}
       <TooltipWrapper>
-        <span>Email</span>
+        <span>Share via Email</span>
         <EmailShareButton url={postUrl} subject={title}>
           <EmailIcon size={24} round />
         </EmailShareButton>
       </TooltipWrapper>
-
     </ShareSection>
     )
 }
