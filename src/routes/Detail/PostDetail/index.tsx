@@ -64,7 +64,7 @@ const PostDetail: React.FC<Props> = () => {
           <NotionRenderer recordMap={data.recordMap} />
         </div>
         
-        <ShareSection>
+        {data.type[0] === "Post" && <ShareSection>
           <TooltipWrapper>
             <span>Share on Bluesky</span>
             <BlueskyShareButton url={postUrl} title={title}>
@@ -100,7 +100,7 @@ const PostDetail: React.FC<Props> = () => {
             </EmailShareButton>
           </TooltipWrapper>
 
-        </ShareSection>
+        </ShareSection>}
 
         {data.type[0] === "Post" && (
           <>
