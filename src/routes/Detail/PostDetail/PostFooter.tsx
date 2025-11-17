@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     cursor: pointer;
 
     :hover {
