@@ -98,7 +98,7 @@ export default ShareButtons
 const ShareSection = styled.div`
   display: flex;
   gap: 0.5rem;
-  margin: 0.75rem 0 1.25rem 0;
+  margin: 1rem 0 1.25rem 0;
   align-items: center;
 `
 
