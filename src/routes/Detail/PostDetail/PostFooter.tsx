@@ -21,10 +21,10 @@ export default Footer
 const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
+    margin-top: 0.5rem;
     cursor: pointer;
 
     :hover {
