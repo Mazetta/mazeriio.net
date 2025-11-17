@@ -13,20 +13,7 @@ export const ThemeProvider = ({ scheme, children }: Props) => {
 
   return (
     <_ThemeProvider theme={theme}>
-      {/* ✅ Global contient déjà les styles de base */}
       <Global />
-
-      {/* ✅ Ajouter un data-theme sur le body pour que les transitions CSS fonctionnent */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            if (typeof document !== 'undefined') {
-              document.body.dataset.theme = '${scheme}';
-            }
-          `,
-        }}
-      />
-
       {children}
     </_ThemeProvider>
   )

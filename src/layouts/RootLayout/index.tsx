@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react"
+import React, { ReactNode, useEffect } from "react"
 import { ThemeProvider } from "./ThemeProvider"
 import useScheme from "src/hooks/useScheme"
 import Header from "./Header"
@@ -6,7 +6,6 @@ import styled from "@emotion/styled"
 import Scripts from "src/layouts/RootLayout/Scripts"
 import useGtagEffect from "./useGtagEffect"
 import Prism from "prismjs/prism"
-import { Global, css } from "@emotion/react" 
 import 'prismjs/components/prism-markup-templating.js'
 import 'prismjs/components/prism-markup.js'
 import 'prismjs/components/prism-bash.js'
@@ -47,52 +46,18 @@ type Props = {
 
 const RootLayout = ({ children }: Props) => {
   const [scheme] = useScheme()
-  const [mounted, setMounted] = useState(false)
-  const [prevScheme, setPrevScheme] = useState(scheme)
-
   useGtagEffect()
-
-  // Highlight PrismJS + set mounted = true
   useEffect(() => {
-    Prism.highlightAll()
-    setMounted(true) // ✅ déclenche l'ajout du wrapper pour transition
-    document.body.dataset.mounted = "true" // ✅ ajoute data-mounted pour activer transition
-  }, [])
-
-  // Met à jour le theme seulement après mount pour éviter flicker
-  useEffect(() => {
-    if (mounted && prevScheme !== scheme) {
-      document.body.dataset.theme = scheme // ✅ applique le theme via data-theme
-      setPrevScheme(scheme)
-    }
-  }, [scheme, mounted, prevScheme])
+    Prism.highlightAll();
+  }, []);
 
   return (
     <ThemeProvider scheme={scheme}>
-      {/* ✅ Global CSS : transition activée uniquement après le mount */}
-      <Global
-        styles={css`
-          /* Pas de transition avant mount pour éviter flicker initial */
-          body, main, header, footer {
-            transition: none;
-          }
-
-          /* Transition fade type Vercel après mount */
-          body[data-mounted="true"],
-          body[data-mounted="true"] main,
-          body[data-mounted="true"] header,
-          body[data-mounted="true"] footer {
-            transition: background-color 0.15s ease, color 0.15s ease;
-          }
-        `}
-      />
-
-      {/* ✅ Wrapper pour data-mounted */}
-      <div>
-        <Scripts />
-        <Header fullWidth={false} />
-        <StyledMain>{children}</StyledMain>
-      </div>
+      <Scripts />
+      {/* // TODO: replace react query */}
+      {/* {metaConfig.type !== "Paper" && <Header />} */}
+      <Header fullWidth={false} />
+      <StyledMain>{children}</StyledMain>
     </ThemeProvider>
   )
 }
