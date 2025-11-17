@@ -39,22 +39,6 @@ const ShareButtons: React.FC<Props> = () => {
     window.open(redditUrl,"RedditShare",`width=${width},height=${height},top=${top},left=${left},toolbar=0,location=0,menubar=0,scrollbars=1,resizable=1`)
   }
 
-  const handleDiscordShare = (postUrl: string) => {
-    if (typeof navigator !== "undefined") {
-        navigator.clipboard.writeText(postUrl)
-        alert("Link copied! Paste it into Discord.")
-      } 
-  }
-    
-  const handleMastodonShare = () => {
-      const width = 660
-      const height = 460
-      const left = window.screenX + (window.outerWidth - width) / 2
-      const top = window.screenY + (window.outerHeight - height) / 2
-      const mastodonUrl = `https://mastodon.social/share?text=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(title)}`
-      window.open(mastodonUrl,"RedditShare",`width=${width},height=${height},top=${top},left=${left},toolbar=0,location=0,menubar=0,scrollbars=1,resizable=1`)
-  }
-
   return (
     <ShareSection>
 
@@ -71,14 +55,6 @@ const ShareButtons: React.FC<Props> = () => {
         <span>Share on Reddit</span>
         <CustomButton onClick={handleRedditShare}>
           <RedditIcon size={24} round />
-        </CustomButton>
-      </TooltipWrapper>
-
-      {/* Discord */}
-      <TooltipWrapper>
-        <span>Copy for Discord</span>
-        <CustomButton onClick={() => handleDiscordShare(postUrl)}>
-          📋
         </CustomButton>
       </TooltipWrapper>
 
@@ -113,16 +89,6 @@ const ShareButtons: React.FC<Props> = () => {
           <BlueskyIcon size={24} round />
         </BlueskyShareButton>
       </TooltipWrapper>
-
-      {/* Mastodon */}
-      <TooltipWrapper>
-        <span>Share on Mastodon</span>
-        <CustomButton onClick={() => handleMastodonShare()}>
-          🐘
-        </CustomButton>
-      </TooltipWrapper>
-
-
 
       {/* Email */}
       <TooltipWrapper>

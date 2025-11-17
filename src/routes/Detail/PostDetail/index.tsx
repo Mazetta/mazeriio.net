@@ -31,10 +31,10 @@ const PostDetail: React.FC<Props> = () => {
         )}
         {data.type[0] === "Post" && <PostHeader data={data} />}
 
-        {/* Share Buttons */}
         {data.type[0] === "Post" && (
           <ShareButtons />
         )}
+        
         <div>
           <NotionRenderer recordMap={data.recordMap} />
         </div>
