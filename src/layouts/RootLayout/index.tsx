@@ -56,12 +56,13 @@ const RootLayout = ({ children }: Props) => {
   useEffect(() => {
     Prism.highlightAll()
     setMounted(true) // ✅ déclenche l'ajout du wrapper pour transition
+    document.body.dataset.mounted = "true" // ✅ ajoute data-mounted pour activer transition
   }, [])
 
   // Met à jour le theme seulement après mount pour éviter flicker
   useEffect(() => {
     if (mounted && prevScheme !== scheme) {
-      document.body.dataset.theme = scheme // ✅ applique le theme
+      document.body.dataset.theme = scheme // ✅ applique le theme via data-theme
       setPrevScheme(scheme)
     }
   }, [scheme, mounted, prevScheme])
@@ -72,19 +73,22 @@ const RootLayout = ({ children }: Props) => {
       <Global
         styles={css`
           /* Pas de transition avant mount pour éviter flicker initial */
-          body, * {
-            transition: none !important;
+          body, main, header, footer {
+            transition: none;
           }
 
           /* Transition fade type Vercel après mount */
-          [data-mounted="true"] * {
+          body[data-mounted="true"],
+          body[data-mounted="true"] main,
+          body[data-mounted="true"] header,
+          body[data-mounted="true"] footer {
             transition: background-color 0.15s ease, color 0.15s ease;
           }
         `}
       />
 
-      {/* ✅ Wrapper avec data-mounted pour activer la transition seulement après mount */}
-      <div data-mounted={mounted}>
+      {/* ✅ Wrapper pour data-mounted */}
+      <div>
         <Scripts />
         <Header fullWidth={false} />
         <StyledMain>{children}</StyledMain>
