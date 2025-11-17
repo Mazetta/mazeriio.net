@@ -48,6 +48,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   const [scheme] = useScheme()
   const [mounted, setMounted] = useState(false)
+  const [prevScheme, setPrevScheme] = useState(scheme)
 
   useGtagEffect()
 
@@ -57,35 +58,23 @@ const RootLayout = ({ children }: Props) => {
   }, [])
 
   useEffect(() => {
-    if (mounted) {
+    if (mounted && prevScheme !== scheme) {
       document.body.dataset.theme = scheme
+      setPrevScheme(scheme)
     }
-  }, [scheme, mounted])
+  }, [scheme, mounted, prevScheme])
 
   return (
     <ThemeProvider scheme={scheme}>
       <Global
         styles={css`
-          /* transition désactivée par défaut pour éviter le flicker SSR */
           body, * {
             transition: none !important;
           }
 
-          /* transition activée après mount */
           [data-mounted="true"] body,
           [data-mounted="true"] * {
-            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.2s ease;
-          }
-
-          /* définition rapide des thèmes */
-          body[data-theme="light"] {
-            background-color: #fff;
-            color: #111;
-          }
-
-          body[data-theme="dark"] {
-            background-color: #111;
-            color: #eee;
+            transition: background-color 0.15s ease, color 0.15s ease;
           }
         `}
       />
