@@ -52,33 +52,38 @@ const RootLayout = ({ children }: Props) => {
 
   useGtagEffect()
 
+  // Highlight PrismJS + set mounted = true
   useEffect(() => {
     Prism.highlightAll()
-    setMounted(true)
+    setMounted(true) // ✅ déclenche l'ajout du wrapper pour transition
   }, [])
 
+  // Met à jour le theme seulement après mount pour éviter flicker
   useEffect(() => {
     if (mounted && prevScheme !== scheme) {
-      document.body.dataset.theme = scheme
+      document.body.dataset.theme = scheme // ✅ applique le theme
       setPrevScheme(scheme)
     }
   }, [scheme, mounted, prevScheme])
 
   return (
     <ThemeProvider scheme={scheme}>
+      {/* ✅ Global CSS : transition activée uniquement après le mount */}
       <Global
         styles={css`
+          /* Pas de transition avant mount pour éviter flicker initial */
           body, * {
             transition: none !important;
           }
 
-          [data-mounted="true"] body,
+          /* Transition fade type Vercel après mount */
           [data-mounted="true"] * {
             transition: background-color 0.15s ease, color 0.15s ease;
           }
         `}
       />
 
+      {/* ✅ Wrapper avec data-mounted pour activer la transition seulement après mount */}
       <div data-mounted={mounted}>
         <Scripts />
         <Header fullWidth={false} />
