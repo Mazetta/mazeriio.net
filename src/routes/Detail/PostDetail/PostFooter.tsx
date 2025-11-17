@@ -21,7 +21,7 @@ export default Footer
 const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};
   a {
