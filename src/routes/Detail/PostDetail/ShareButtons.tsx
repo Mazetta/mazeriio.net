@@ -41,54 +41,34 @@ const ShareButtons: React.FC<Props> = () => {
 
   return (
     <ShareSection>
-      <TooltipWrapper>
-        <span>Share on X</span>
-        <TwitterShareButton url={postUrl} title={title}>
-          <XIcon size={24} round />
-        </TwitterShareButton>
-      </TooltipWrapper>
+      <TwitterShareButton url={postUrl} title={title}>
+        <XIcon size={24} round />
+      </TwitterShareButton>
 
-      <TooltipWrapper>
-        <span>Share on Reddit</span>
-        <CustomButton onClick={handleRedditShare}>
-          <RedditIcon size={24} round />
-        </CustomButton>
-      </TooltipWrapper>
+      <CustomButton onClick={handleRedditShare}>
+        <RedditIcon size={24} round />
+      </CustomButton>
 
-      <TooltipWrapper>
-        <span>Share on WhatsApp</span>
-        <WhatsappShareButton url={postUrl} title={title}>
-          <WhatsappIcon size={24} round />
-        </WhatsappShareButton>
-      </TooltipWrapper>
+      <WhatsappShareButton url={postUrl} title={title}>
+        <WhatsappIcon size={24} round />
+      </WhatsappShareButton>
 
-      <TooltipWrapper>
-        <span>Share on Facebook</span>
-        <FacebookShareButton url={postUrl} title={title}>
-          <FacebookIcon size={24} round />
-        </FacebookShareButton>
-      </TooltipWrapper>
+      <FacebookShareButton url={postUrl} title={title}>
+        <FacebookIcon size={24} round />
+      </FacebookShareButton>
 
-      <TooltipWrapper>
-        <span>Share on Threads</span>
-        <ThreadsShareButton url={postUrl} title={title}>
-          <ThreadsIcon size={24} round />
-        </ThreadsShareButton>
-      </TooltipWrapper>
 
-      <TooltipWrapper>
-        <span>Share on Bluesky</span>
-        <BlueskyShareButton url={postUrl} title={title}>
-          <BlueskyIcon size={24} round />
-        </BlueskyShareButton>
-      </TooltipWrapper>
+      <ThreadsShareButton url={postUrl} title={title}>
+        <ThreadsIcon size={24} round />
+      </ThreadsShareButton>
 
-      <TooltipWrapper>
-        <span>Share via Email</span>
-        <EmailShareButton url={postUrl} subject={title}>
-          <EmailIcon size={24} round />
-        </EmailShareButton>
-      </TooltipWrapper>
+      <BlueskyShareButton url={postUrl} title={title}>
+        <BlueskyIcon size={24} round />
+      </BlueskyShareButton>
+
+      <EmailShareButton url={postUrl} subject={title}>
+        <EmailIcon size={24} round />
+      </EmailShareButton>
     </ShareSection>
     )
 }
@@ -108,39 +88,4 @@ const CustomButton = styled.button`
   cursor: pointer;
   padding: 0;
   align-items: center;
-`
-
-const TooltipWrapper = styled.div`
-  position: relative;
-  display: inline-block;
-
-  &:hover span {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -4px);
-  }
-
-  span {
-    position: absolute;
-    left: 50%;
-    bottom: 100%;
-    transform: translate(-50%, 0);
-    padding: 4px 8px;
-
-    background: ${({ theme }) =>
-      theme.scheme === "light"
-        ? "rgba(0,0,0,0.75)"
-        : "rgba(255,255,255,0.85)"};
-
-    color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : "black"};
-
-    font-size: 0.75rem;
-    border-radius: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    pointer-events: none;
-  }
 `
