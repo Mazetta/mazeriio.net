@@ -1,10 +1,11 @@
 import styled from "@emotion/styled"
 import React from "react"
-import { FaEnvelope, FaBluesky, FaXTwitter, FaRss, FaYoutube, FaGithub, FaReddit } from "react-icons/fa6"
+import { FaEnvelope, FaDiscord, FaBluesky, FaXTwitter, FaRss, FaYoutube, FaGithub, FaReddit } from "react-icons/fa6"
 import { CONFIG } from "site.config"
 import { Emoji } from "src/components/Emoji"
 
 const FaEnvelopeIcon = FaEnvelope as unknown as React.ComponentType<any>
+const FaDiscordIcon = FaDiscord as unknown as React.ComponentType<any>
 const FaBlueskyIcon = FaBluesky as unknown as React.ComponentType<any>
 const FaXTwitterIcon = FaXTwitter as unknown as React.ComponentType<any>
 const FaRssIcon = FaRss as unknown as React.ComponentType<any>
@@ -26,6 +27,7 @@ const ContactCard: React.FC = () => {
             <div className="name">RSS</div>
           </a>
         )}
+        
           <a
             href={`mailto:${CONFIG.profile.email}`}
             rel="noreferrer"
@@ -35,6 +37,18 @@ const ContactCard: React.FC = () => {
             <FaEnvelopeIcon className="icon" />
             <div className="name">Email</div>
           </a>
+
+        {CONFIG.profile.discord && (
+          <a
+            href={`https://discord.gg/${CONFIG.profile.discord}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <FaDiscordIcon className="icon" />
+            <div className="name">Discord</div>
+          </a>
+        )}
+
         {CONFIG.profile.bluesky && (
           <a
             href={`https://bsky.app/profile/${CONFIG.profile.bluesky}`}
@@ -45,6 +59,7 @@ const ContactCard: React.FC = () => {
             <div className="name">Bluesky</div>
           </a>
         )}
+        
         {CONFIG.profile.twitter && (
           <a
             href={`https://x.com/${CONFIG.profile.twitter}`}
@@ -55,6 +70,7 @@ const ContactCard: React.FC = () => {
             <div className="name">X</div>
           </a>
         )}
+
         {CONFIG.profile.reddit && (
           <a
             href={`https://www.reddit.com/user/${CONFIG.profile.reddit}`}
@@ -65,6 +81,7 @@ const ContactCard: React.FC = () => {
             <div className="name">Reddit</div>
           </a>
         )}
+        
         {CONFIG.profile.youtube && (
           <a
             href={`https://www.youtube.com/${CONFIG.profile.youtube}`}
@@ -75,6 +92,7 @@ const ContactCard: React.FC = () => {
             <div className="name">YouTube</div>
           </a>
         )}
+
         {CONFIG.profile.github && (
           <a
             href={`https://github.com/${CONFIG.profile.github}`}
@@ -86,16 +104,6 @@ const ContactCard: React.FC = () => {
           </a>
           
         )}
-
-        <iframe
-          src="https://discord.com/widget?id=1444675181330038846"
-          width="246"
-          height="500"
-          allowTransparency={true}
-          frameBorder="0"
-          style={{ borderRadius: "12px" }}
-          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        />
 
       </StyledWrapper>
     </>

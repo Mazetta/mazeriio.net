@@ -7,6 +7,7 @@ const CONFIG = {
     bio: "I love watching series, movies and playing video games.",
     rss: "https://www.mazeriio.net/api/rss.xml",
     email: "contact@mazeriio.net",
+    discord: "UynQvcv8GQ",
     bluesky: "@mazeriio.net",
     twitter: "Mazeriio",
     youtube: "@Mazeriio",
