@@ -88,8 +88,8 @@ const ContactCard: React.FC = () => {
         )}
 
         <iframe
-          src="https://discord.com/widget?id=1444675181330038846&theme=dark"
-          width="350"
+          src="https://discord.com/widget?id=1444675181330038846"
+          width="246"
           height="500"
           allowTransparency={true}
           frameBorder="0"
