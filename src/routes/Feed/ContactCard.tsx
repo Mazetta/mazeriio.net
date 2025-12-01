@@ -84,7 +84,19 @@ const ContactCard: React.FC = () => {
             <FaGithubIcon className="icon" />
             <div className="name">GitHub</div>
           </a>
+          
         )}
+
+        <iframe
+          src="https://discord.com/widget?id=1444675181330038846&theme=dark"
+          width="350"
+          height="500"
+          allowTransparency={true}
+          frameBorder="0"
+          style={{ borderRadius: "12px" }}
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        />
+
       </StyledWrapper>
     </>
   )
